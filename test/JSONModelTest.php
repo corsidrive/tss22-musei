@@ -17,7 +17,16 @@ try {
 
 try {   
     $model = new JSONModel();
-    $model->fromFile('./__materiali/gam.json'); 
+    $data = $model->fromFile('./__materiali/gam.json');
+
+    if(!(count($data)>0)){
+        echo "non ho trovato dati";
+    }
+    
+    if(!is_array($data)){
+        echo "non è un array";
+    }
+
 } catch (Exception $e) {
     echo "il test è fallito\n perche: ".$e->getMessage();
 }

@@ -19,12 +19,12 @@ class JSONModel {
      */
     public function fromFile(string $path,$useArrayAssoc=true):array
     {
+
      if(file_exists($path)){
 
         $this->jsonData = file_get_contents($path);
         $this->data = json_decode($this->jsonData,$useArrayAssoc);
       
-        
         if(json_last_error() !== JSON_ERROR_NONE){
            throw new Exception('formato json non valido',777);     
         };
