@@ -1,5 +1,5 @@
 <?php
-sadas
+
 interface IOpera {
     public function getTitolo();
     public function getAutore();
