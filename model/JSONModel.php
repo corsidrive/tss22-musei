@@ -9,7 +9,7 @@ class JSONModel {
      * Le informazioni convertite
      * @var [type]
      */
-    private $data;
+    protected $data;
 
     /**
      * Metodo per leggere un file JSON

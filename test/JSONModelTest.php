@@ -1,5 +1,8 @@
 <?php
 require "model/JSONModel.php";
+require "class/IOpera.php";
+require "class/OperaGAMAdapter.php";
+require "model/OpereGAMModel.php";
 
 
 try {
@@ -32,11 +35,11 @@ try {
 }
 
 
-// $model->fromString("{'Tiolo':'Senza titolo'}");
+
+echo "---------------------------------------------\n";
 
 
+$model = new OpereGAMModel();
 
-// $datiB = $model->fromFile("fileA.json");
-// $model->save('mao')
-// $model->saveDATE('mao')
-
+$model->importOpere('./__materiali/gam.json');
+$model->findByAutore('ciccio');
