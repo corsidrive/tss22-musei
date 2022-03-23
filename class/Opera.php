@@ -1,6 +1,6 @@
 <?php
 
-class Opera {
+class Opera  {
     private $provenienza;
     private $titolo;
     private $autore;
