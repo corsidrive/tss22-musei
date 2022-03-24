@@ -3,16 +3,12 @@
 class OpereGAMModel extends JSONModel {
 
 
-    public function importOpere($path)
+    public function importOpere(string $path)
     {
-        // Paradigma Imperativo
-        // $risultato = [];
-        // foreach ($data as $key => $opera) {
-            //     $risultato[$key] = new OperaGAMAdapter($opera);
-            // }
-            
+        // ottengo array associativo delle opere
         $data = parent::fromFile($path);
-        // Paradigma Dichiarativo
+        
+        // 
         $risultato = array_map(function($opera){
             return new OperaGAMAdapter($opera);
         },$data);

@@ -23,7 +23,7 @@ class OperaGAMAdapter implements IOpera {
 
     public function getProvenienza()
     {
-        return 'GAM';
+        return 'GAM'; // 'PMD'
     }
 
     public function getImmagine()
