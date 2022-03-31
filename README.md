@@ -40,6 +40,11 @@ class Opera {
 ### Ariticoli interessanti
 
 - [Articolo sul fetchAll](https://phpdelusions.net/pdo#fetchall)
+- [REPL PHP](https://replit.com/new/php_cli)
 
 
+### Dati via POST
 
+ 
+
+- [filter_input](https://www.php.net/manual/en/function.filter-input.php)

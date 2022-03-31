@@ -61,6 +61,4 @@
         </div>
       </div>
 
-    
-
-      <h2 class="h4">Elenco opere del GAM</h2>
+      <h2 class="h4 mb-5"><?= $this->nomeCategoria ?></h2>
