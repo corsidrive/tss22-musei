@@ -30,3 +30,16 @@ class Opera {
 @enduml
 
 ```
+
+## PDO 
+
+### w3c PDO
+
+- [Connect PDO](https://www.w3schools.com/php/php_mysql_connect.asp) 
+
+### Ariticoli interessanti
+
+- [Articolo sul fetchAll](https://phpdelusions.net/pdo#fetchall)
+
+
+
