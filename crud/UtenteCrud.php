@@ -13,10 +13,26 @@ class UtenteCrud {
         
     }
 
-
     public function create(Utente $utente)
     {
-        
+        try {
+            
+            $sql="INSERT INTO utenti (user_id,nome,cognome) 
+                  VALUES (:user_id,:nome,:cognome);";
+
+            $pdostm = $this->pdo->prepare($sql);
+
+            // Associo i valori ai parametri (:nome, ecc) definiti nella query
+            $pdostm->bindValue(':user_id',$utente->getUserId());
+            $pdostm->bindValue(':nome',$utente->getNome());
+            $pdostm->bindValue(':cognome',$utente->getCognome());
+
+            $pdostm->execute();
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+           
     }
 
     public function read(int $user_id)
@@ -35,8 +51,9 @@ class UtenteCrud {
             
             return $risultato;
 
+        // indico interfaccia    
         } catch (\Throwable $th) {
-            //throw $th;
+            echo $th->getMessage();
         }
 
 
