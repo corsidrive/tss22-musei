@@ -13,10 +13,11 @@ $utente->setEmail('a@b.it');
 
 $utenteCrud->create($utente);
 try {
-$utenteCrud->create($utente);
-}catch(PDOException $e){
-   if($e->getCode() == 23000){
-       echo $e->getMessage();
-       echo "Chiave duplicata: Esiste già un utente con questa email";  
-   } ; 
+    $utenteCrud->create($utente);
+    echo "Test Fallito";
+} catch (PDOException $e) {
+    if ($e->getCode() == 23000) {
+        echo $e->getMessage() . "<br>";
+        echo "Chiave duplicata: Esiste già un utente con questa email";
+    };
 }
