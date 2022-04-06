@@ -4,6 +4,7 @@ class Utente {
     private $user_id;
     private $nome;
     private $cognome;
+    private $email;
    
     /**
      * Get the value of user_id
@@ -61,6 +62,26 @@ class Utente {
     public function setCognome($cognome)
     {
         $this->cognome = $cognome;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of email
+     */ 
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set the value of email
+     *
+     * @return  self
+     */ 
+    public function setEmail($email)
+    {
+        $this->email = $email;
 
         return $this;
     }

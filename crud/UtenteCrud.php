@@ -6,7 +6,10 @@ class UtenteCrud {
     
     public function __construct() {
         try{
-            $this->pdo = new PDO("mysql:host=localhost;dbname=musei_tss","root","");
+            $this->pdo = new PDO(Config::DB_CONNECT,Config::DB_USERNAME,Config::DB_PASSWORD);
+            // Abilita la visualizzazione degli errori nel pdo
+            $this->pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
         }catch(PDOException $e){
             echo $e->getMessage();
         }
@@ -17,8 +20,8 @@ class UtenteCrud {
     {
         try {
             
-            $sql="INSERT INTO utenti (user_id,nome,cognome) 
-                  VALUES (:user_id,:nome,:cognome);";
+            $sql="INSERT INTO utenti (user_id,nome,cognome,email) 
+                  VALUES (:user_id,:nome,:cognome,:email);";
 
             $pdostm = $this->pdo->prepare($sql);
 
@@ -26,11 +29,12 @@ class UtenteCrud {
             $pdostm->bindValue(':user_id',$utente->getUserId());
             $pdostm->bindValue(':nome',$utente->getNome());
             $pdostm->bindValue(':cognome',$utente->getCognome());
+            $pdostm->bindValue(':email',$utente->getEmail());
 
             $pdostm->execute();
 
         } catch (PDOException $e) {
-            echo $e->getMessage();
+           throw $e;
         }
            
     }
