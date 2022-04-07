@@ -58,7 +58,6 @@ if($utenteTrovato->getNome() == 'Fabio'){
 }
 
 
-
 $utenteCrud->delete(2);
 if(count($utenteCrud->readAll()) == 1){
     echo "il numero di utenti è 1<br>";

@@ -1,6 +1,30 @@
-# Appunti vari
+# TODO
 
-## Articoli interssanti
+
+## Gestione utenti
+
+- [ ] Aggiungere email in *add_user_controller.php*
+- [ ] *TOFIX* - Aggiungere il Config.php
+
+- [ ] Aggiungere a lato link gestione utenti
+  - [ ] **indexView** visualizzo elenco utenti
+    - [ ] un pusante sopra la tabella: **nuovo utente** 
+    - [ ] tabella con nome cognome email
+  
+    - [ ] bottoni modifica e elimina utente su ogni riga.
+
+[esempio di index view]("./__appunti/crud-data-table-for-database-with-modal-form.png")
+
+## validazione 
+
+- [ ] nome, cognome, email obbigatori
+- [ ] la mail deve avere il formato corretto
+
+----
+
+## Appunti vari
+
+### Articoli interssanti
 
 - [Design pattern adapter](https://designpatternsphp.readthedocs.io/en/latest/Structural/Adapter/README.html)
 
@@ -30,6 +54,11 @@ class Opera {
 @enduml
 
 ```
+
+
+
+
+
 
 ## PDO 
 
