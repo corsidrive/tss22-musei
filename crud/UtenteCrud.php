@@ -20,18 +20,22 @@ class UtenteCrud {
     {
         try {
             
-            $sql="INSERT INTO utenti (user_id,nome,cognome,email) 
-                  VALUES (:user_id,:nome,:cognome,:email);";
+            $sql="INSERT INTO utenti (nome,cognome,email) 
+                  VALUES (:nome,:cognome,:email);";
 
             $pdostm = $this->pdo->prepare($sql);
 
             // Associo i valori ai parametri (:nome, ecc) definiti nella query
-            $pdostm->bindValue(':user_id',$utente->getUserId());
+            // $pdostm->bindValue(':user_id',$utente->getUserId());
             $pdostm->bindValue(':nome',$utente->getNome());
             $pdostm->bindValue(':cognome',$utente->getCognome());
             $pdostm->bindValue(':email',$utente->getEmail());
 
             $pdostm->execute();
+
+            $utente->setUserId($this->pdo->lastInsertId());
+
+            return $utente;
 
         } catch (PDOException $e) {
            throw $e;

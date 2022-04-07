@@ -18,13 +18,12 @@ $utente->setEmail('a@b.it');
 $utenteCrud->create($utente);
 
 // inserisco Gianni morandi
-$utente = new Utente();
-$utente->setNome("Gianni");
-$utente->setCognome("Morandi");
-$utente->setEmail('giannimorandi@ciccio.it');
+$gianni = new Utente();
+$gianni->setNome("Gianni");
+$gianni->setCognome("Morandi");
+$gianni->setEmail('giannimorandi@ciccio.it');
 // persistenza
-$utenteCrud->create($utente);
-
+$gianniAppenaCreato = $utenteCrud->create($gianni);
 // Test per la coerenza della tabella utenti
 // non possono esistere 2 utenti con la stessa email
 // - MYSQL -> chiave unica UNIQUE INDEX `email` (`email`)
@@ -58,6 +57,8 @@ if($utenteTrovato->getNome() == 'Fabio'){
     echo "ok il nome è stato cambiato<br>";
 }
 
+
+
 $utenteCrud->delete(2);
 if(count($utenteCrud->readAll()) == 1){
     echo "il numero di utenti è 1<br>";
@@ -67,8 +68,3 @@ $res = $utenteCrud->read(2);
 if(is_null($res)){
     echo "ok utente cancellato";
 }
-
-
-var_dump($res);
-
-
