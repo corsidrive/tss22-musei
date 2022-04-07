@@ -41,7 +41,7 @@ class UtenteCrud {
     /**
      * Questo metodo permette di trovare un utente 
      */
-    public function read(int $user_id):Utente
+    public function read(int $user_id):?Utente
     {
         try {
        
@@ -52,6 +52,12 @@ class UtenteCrud {
             // riga ---> new Utente()
             // array[0]
             $res = $query->fetchAll(PDO::FETCH_CLASS,'Utente');
+
+            print_r(count($res));
+
+            if(count($res) == 0){
+                return null;
+            }
 
             if(count($res) == 1) {
                 return $res[0];
@@ -114,7 +120,7 @@ class UtenteCrud {
     public function delete(int $user_id)
     {
         try {
-            
+
             $sql = "DELETE FROM utenti WHERE user_id = :user_id;";
             $query = $this->pdo->prepare($sql);
             $query->execute(array(
