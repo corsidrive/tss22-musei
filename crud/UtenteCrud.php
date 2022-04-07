@@ -38,10 +38,31 @@ class UtenteCrud {
         }
            
     }
-
-    public function read(int $user_id)
+    /**
+     * Questo metodo permette di trovare un utente 
+     */
+    public function read(int $user_id):Utente
     {
-        
+        try {
+       
+            $sql="SELECT * FROM utenti where user_id = :user_id";
+            $query = $this->pdo->prepare($sql);
+            $query->bindValue(':user_id',$user_id);
+            $query->execute();
+            // riga ---> new Utente()
+            // array[0]
+            $res = $query->fetchAll(PDO::FETCH_CLASS,'Utente');
+
+            if(count($res) == 1) {
+                return $res[0];
+            }else {
+                throw new Exception('ho trovato più di un utente con lo stesso id');
+            }
+
+        } catch (PDOException $ex) {
+            throw $ex;
+        }
+       
     }
 
     public function readAll():array
@@ -66,12 +87,43 @@ class UtenteCrud {
 
     public function update(Utente $utente)
     {
-        # code...
+        try {
+
+        
+        $sql = "UPDATE utenti 
+                SET nome = :nome, 
+                    cognome = :cognome,
+                    email = :email
+        WHERE user_id = :user_id;";
+        
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':nome',$utente->getNome(),PDO::PARAM_STR);
+        $query->bindValue(':cognome',$utente->getCognome(),PDO::PARAM_STR);
+        $query->bindValue(':email',$utente->getEmail(),PDO::PARAM_STR);
+        $query->bindValue(':user_id',$utente->getUserId(),PDO::PARAM_INT);
+        $query->execute();
+
+        return $query->rowCount();
+        
+        }catch(PDOException $ex){
+            throw $ex;
+        }
+
     }
 
     public function delete(int $user_id)
     {
-        # code...
+        try {
+            
+            $sql = "DELETE FROM utenti WHERE user_id = :user_id;";
+            $query = $this->pdo->prepare($sql);
+            $query->execute(array(
+                ":user_id" => $user_id
+            ));
+
+        } catch (PDOException $th) {
+            throw $th;
+        }
     }
 
 
