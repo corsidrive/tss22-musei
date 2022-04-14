@@ -3,13 +3,13 @@
 
 ## Gestione utenti
 
-- [ ] Aggiungere email in *add_user_controller.php*
-- [ ] *TOFIX* - Aggiungere il Config.php
+- [x] Aggiungere email in *add_user_controller.php*
+- [x] *TOFIX* - Aggiungere il Config.php
 
-- [ ] Aggiungere a lato link gestione utenti
-  - [ ] **indexView** visualizzo elenco utenti
-    - [ ] un pusante sopra la tabella: **nuovo utente** 
-    - [ ] tabella con nome cognome email
+- [x] Aggiungere a lato link gestione utenti
+  - [3] **indexView** visualizzo elenco utenti
+    - [x] un pusante sopra la tabella: **nuovo utente** 
+    - [x] tabella con nome cognome email
   
     - [ ] bottoni modifica e elimina utente su ogni riga.
 
@@ -17,8 +17,8 @@
 
 ## validazione 
 
-- [ ] nome, cognome, email obbigatori
-- [ ] la mail deve avere il formato corretto
+- [-] nome, cognome, email obbigatori
+- [-] la mail deve avere il formato corretto
 
 ----
 
