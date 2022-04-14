@@ -2,9 +2,24 @@
 class AddUserView {
     private $nomeSezione;
     private $nomeCategoria;
-    public function __construct($nomeSezione,$nomeCategoria) {
+    private $emailErrore;
+    private $emailInvalid;
+    private $email;
+
+    public function __construct($nomeSezione
+                                ,$nomeCategoria
+                                ,$email
+                                ,$emailErrore
+                                ,$emailInvalid
+                                ) 
+                                {
         $this->nomeSezione = $nomeSezione;
         $this->nomeCategoria = $nomeCategoria;
+        $this->email = $email;
+        $this->emailErrore = $emailErrore;
+        $this->emailInvalid = $emailInvalid;
+       
+
         // print_r($this);
     }
 
@@ -14,22 +29,59 @@ class AddUserView {
         include "view/layout/head.php";
         include "view/layout/header.php";
         include "view/layout/sidebar.php";
+        
+        print_r(
+            $_SERVER['REQUEST_METHOD']
+        );
+        
+        
         ?>
-        <form action="save_user_controller.php" method="POST">
+
+        <form action="add_user_controller.php" method="POST">
 
         <div class="mb-3">
             <label class="form-label">Nome</label>
             <input class="form-control"
                    name="nome" 
-                   type="text">
+                   type="text"
+                   
+                   >
+            <div class="invalid-feedback">
+                il nome è obbligatorio
+            </div>
+         
         </div>
-<ciccio>ciccio</ciccio>
         <div class="mb-3">
             <label class="form-label">Cognome</label>
             <input class="form-control"
+
                    name="cognome" 
-                   type="text">
+                   type="text" >
+                   
         </div>
+        <div class="mb-3">
+            <label class="form-label">email</label>
+            <?php $emailClass = $this->emailInvalid ? "is-invalid" : "is-valid"  ; ?>
+            <input class="form-control <?= $emailClass ?>"
+                   name="email" 
+                   value="<?= $this->email ?>"
+                   type="text" 
+                   >
+                   
+        </div>
+
+        <!-- <div class="mb-3">
+            <label class="form-label">eta</label>
+            <input class="form-control"
+                 max="100"
+                 min="18"
+                 step="1"
+                   name="number" 
+                   type="number" >
+                   
+        </div> -->
+
+        
 
         <div class="mb-3">
             <button class="btn btn-primary" type="submit">Aggiungi utente</button>

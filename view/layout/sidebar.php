@@ -24,6 +24,15 @@
               Palazzo Madama
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="add_user_controller.php">
+              <span data-feather="bar-chart-2"></span>
+              Aggiungi Utente
+            </a>
+          </li>
+
+
           
 
 
