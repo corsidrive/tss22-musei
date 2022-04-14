@@ -13,7 +13,7 @@
   
     - [ ] bottoni modifica e elimina utente su ogni riga.
 
-[esempio di index view]("./__appunti/crud-data-table-for-database-with-modal-form.png")
+[esempio di index view](./__appunti/crud-data-table-for-database-with-modal-form.png)
 
 ## validazione 
 
