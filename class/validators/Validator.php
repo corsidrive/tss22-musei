@@ -1,5 +1,5 @@
 <?php
-class Validator {
+abstract class Validator {
     private $data;
     private $required;
     private $message = '';
@@ -21,5 +21,9 @@ class Validator {
     {
         return $this->data;
     }
+
+    
+    abstract public function rule();
+  
 
 }
