@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nomeInvalid = true;
         $formIsValid = false;
        echo "entro";
-        die();
+        // die();
     }
 
     if ($formIsValid) {
