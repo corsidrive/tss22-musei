@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $email = $_POST['email'];
+    $email = $_POST['email'];//
     $test = filter_var($email, FILTER_VALIDATE_EMAIL);
 
     if ($test === false) {

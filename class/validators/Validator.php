@@ -23,7 +23,7 @@ abstract class Validator {
     }
 
     
-    abstract public function rule();
+    abstract public function rule():bool;
   
 
 }

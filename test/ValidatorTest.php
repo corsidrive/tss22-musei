@@ -1,4 +1,6 @@
 <?php
+include "../class/validators/Validator.php";
+include "../class/validators/ValidateEmail.php";
 // $required = true;
 // $email = new ValidateEmail('a@b.it');
 
@@ -34,17 +36,17 @@
 
 
 $tests = [
-    // data , required , risultato atteso
-    ['aaa',   true,      false,__LINE__,"email non corretta, obbligatoria"], 
-    ['aaa',   false,     false,__LINE__],
-    ['',      true,      false,__LINE__],
-    ['    ',  true,      false,__LINE__],
-    ['',      false,     true,__LINE__],
-    ['     ', false,     true,__LINE__],
-    ['a@b.it',true,true,__LINE__],
-    ['    a@b.it    ',true,true,__LINE__],
-    ['a@b.it',false,true,__LINE__],
-    ['   a@b.it   ',false,true,__LINE__],
+    // data ,         required ,   risultato atteso
+    ['aaa',           true,        false,__LINE__,"email non corretta, obbligatoria"], 
+    ['aaa',           false,       false,__LINE__],
+    ['',              true,        false,__LINE__],
+    ['    ',          true,        false,__LINE__],
+    ['',              false,       true, __LINE__,"email non obbligatoria, utente non scrive nulla, la validazione da true"],
+    ['     ',         false,       true, __LINE__,"email non obbligatoria, utente scrive una riga di spazi, la validazione da true"],
+    ['a@b.it',        true,        true, __LINE__],
+    ['    a@b.it    ',true,        true, __LINE__,"la mail è obbligatoria, l'utente scrive una mail corretta ma mette spazi davnti e diero alla mail,mi aspetto true"],
+    ['a@b.it',        false,       true, __LINE__],
+    ['   a@b.it   ',  false,       true, __LINE__,"la mail noe è obbligatoria, l'utente scrive una mail corretta ma mette spazi davnti e diero alla mail, mi aspetto true"],
 ];
 
 
@@ -63,5 +65,8 @@ foreach ($tests as $key => $test) {
     if(!$testRiuscito){
         echo "test fallito: linea: $linea  \"$emailDaTestare\" mi aspettavo <br>";
         var_dump($risultatoAtteso);
+        echo "ho trovato";
+        var_dump($email->rule());
+        echo "<hr>";
     }
 }
