@@ -15,16 +15,22 @@ Le immagini dovranno essere scaricate in locale.
 ### Classe per le immagini
 
 Esempio di applizione classe immagini
-[__materiali\download_image.php](__materiali\download_image.php)
-[__materiali\prova-di-download-test.php](__materiali\prova-di-download-test.php)
+ - [__materiali\download_image.php](__materiali\download_image.php)
 
-[php-image-resize](https://github.com/gumlet/php-image-resize)
+ - [__materiali\prova-di-download-test.php](__materiali\prova-di-download-test.php)
+
+#### Documentazione ufficiale classe di ridimensionamento
+
+- [php-image-resize](https://github.com/gumlet/php-image-resize)
 
 DA FARE:
 
 - [ ] Creare uno script di installazione delle tabelle nel database
   - Museo
   - Opere
+
+come abbiamo fatto qui: 
+[https://github.com/corsidrive/tss22-musei/blob/gestione-utenti/script/install.php](https://github.com/corsidrive/tss22-musei/blob/gestione-utenti/script/install.php)
 
 - [ ] Creare una classe **OperaCrud** per l'inserimento delle opere
   - [ ] dare la precedenza al metodo **create** e al metodo **readAll**  
