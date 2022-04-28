@@ -4,7 +4,7 @@
 
 - [Design pattern adapter](https://designpatternsphp.readthedocs.io/en/latest/Structural/Adapter/README.html)
 
-```json
+```puml
 
 @startuml
 title Relationships - Class Diagram
