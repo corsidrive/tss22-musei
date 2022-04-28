@@ -26,7 +26,7 @@ DA FARE:
   - Museo
   - Opere
 
-- [ ] Creare una classe **OpereCrud** per l'inserimento delle opere
+- [ ] Creare una classe **OperaCrud** per l'inserimento delle opere
   - [ ] dare la precedenza al metodo **create** e al metodo **readAll**  
 
 - [ ] Importare le opere da un filejson
